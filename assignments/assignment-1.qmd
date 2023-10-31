@@ -6,10 +6,20 @@ title: "Assignment 1"
 
 ```{r}
 1 + 1
+
+library(dslabs)
+data(na_example)
+na_example
+#number of nas:
+sprintf("%d tane vardır",sum(is.na(na_example)))
+x<-na_example
+x[is.na(x)] <- 0
+x
 ```
 
 My first assignment has two parts.
 
 ## (a)
+[I chose this video.](https://www.rstudio.com/conference/2022/talks/its-about-time/)
 
 ## (b)
