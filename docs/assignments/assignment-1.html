@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -148,9 +148,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
 </ul>
             <div class="quarto-navbar-tools ms-auto tools-wide">
-    <a href="https://twitter.com" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://linkedin.com" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/elonmusk" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://linkedin.com/in/dogadeniz/" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
           </div> <!-- /navcollapse -->
@@ -209,6 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">(a)</a></li>
   <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">(c)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -239,7 +240,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="assignment-1" class="level1">
 <h1>Assignment 1</h1>
-<p>My first assignment has two parts.</p>
+<p>My first assignment has 3 parts.</p>
+<section id="a" class="level2">
+<h2 class="anchored" data-anchor-id="a">(a)</h2>
+<p>I chose this <a href="https://www.rstudio.com/conference/2022/talks/its-about-time/">video.</a> “Developing internal tools for multi-lingual teams” This video helps multi-lingual team who use different language (for example Python and R) to follow the same internal procedures regardless the language they are using. The speaker of this conference suggest three strategies we can use to make developing tools simultaneously with Python and R easier.</p>
+<p>1)Identical generic functions:</p>
+<p>say_hello &lt;- Function(x){ print(“hello”) }</p>
+<p>def say_hello(x): return “hello”</p>
+<p>2)Identical error handling with classes</p>
+<p>3)creating a new internal wrappers</p>
+</section>
+<section id="b" class="level2">
+<h2 class="anchored" data-anchor-id="b">(b)</h2>
+<p>I explained 3 differences between R and Python.</p>
+<p>1)Function Definitions:</p>
+<p>In R, we define functions using the function keyword, and the result is often returned implicitly. In Python, functions are defined using the def keyword, and you explicitly use the return statement to return values. Example:</p>
+<p>-R: my_function &lt;- function(a, b) { a + b }</p>
+<p>-Python: def my_function(a, b): return a + b</p>
+<p>2)Indexing and Slicing:</p>
+<p>In R, indexing typically starts from 1, and you can use square brackets for subsetting vectors and data frames. In Python, indexing starts from 0, and you can use square brackets for lists and strings for slicing. Example:</p>
+<p>-R: vector_a[2] # Access the second element</p>
+<p>-Python: list_a[1] # Access the second element</p>
+<p>3)Packages and Libraries:</p>
+<p>R: R has a rich ecosystem of packages for statistical analysis and data visualization, with CRAN (Comprehensive R Archive Network) as a central repository. Python: Python is known for its extensive libraries and packages for various domains, including NumPy, Pandas, for data science. Example:</p>
+<p>-R: library(ggplot2)</p>
+<p>-Python: import matplotlib.pyplot as plt</p>
+</section>
+<section id="c" class="level2">
+<h2 class="anchored" data-anchor-id="c">(c)</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(na_example)</span>
@@ -327,12 +355,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [1000] 2</code></pre>
 </div>
 </div>
-<section id="a" class="level2">
-<h2 class="anchored" data-anchor-id="a">(a)</h2>
-<p>I chose this <a href="https://www.rstudio.com/conference/2022/talks/its-about-time/">video.</a></p>
-</section>
-<section id="b" class="level2">
-<h2 class="anchored" data-anchor-id="b">(b)</h2>
 
 
 </section>

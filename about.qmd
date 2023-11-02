@@ -2,7 +2,7 @@
 title: "About Me"
 sidebar: false 
 ---
-You can download my CV [here](CV_doga.pdf)
+You can download my CV [here.](CV_doga.pdf)
 
 # Education
 
@@ -20,6 +20,8 @@ You can download my CV [here](CV_doga.pdf)
 2.  Firm TUSAŞ, position Production Planning Intern, year 2023
 
 # Projects
+
+Turkish Aerospace Lift-Up Graduation Project - "Demand Correlation Analysis, Storage Assignment, Vehicle Route Planning", SEP 2023 - Present
 
 # Competencies
 

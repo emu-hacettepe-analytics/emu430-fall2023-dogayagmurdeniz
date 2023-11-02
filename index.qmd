@@ -1,12 +1,15 @@
 ---
-title: "Welcome to My Analytics Lab"
+title: "Welcome to My Analytics Lab!"
 sidebar: false 
 ---
 
-Hello! My name is Doğa Yağmur Deniz.
 
-This is my personal webpage.
+Hello!
+I'm Doğa Yağmur Deniz. 
+This is my personal webpage, where I share my work in data analytics and blog posts.
 
-Please stay tuned to follow my works on data analytics, blog posts, and more.
+Stay tuned for updates and discoveries :)
 
-This is our template.
+```{r, echo=FALSE}
+knitr::include_graphics("smiley.jpg")
+```

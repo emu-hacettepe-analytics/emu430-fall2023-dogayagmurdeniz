@@ -4,10 +4,71 @@ title: "Assignment 1"
 
 # Assignment 1
 
-My first assignment has two parts.
+My first assignment has 3 parts.
+
+
+## (a)
+I chose this [video.](https://www.rstudio.com/conference/2022/talks/its-about-time/)
+"Developing internal tools for multi-lingual teams"
+This video helps multi-lingual team who use different language (for example Python and R) to follow the same internal procedures regardless the language they are using. The speaker of this conference suggest three strategies we can use to make developing tools simultaneously with Python and R easier.  
+
+1)Identical generic functions:
+
+say_hello <- Function(x){
+  print("hello")
+}
+
+def say_hello(x):
+  return "hello"
+  
+2)Identical error handling with classes
+
+3)creating a new internal wrappers 
+
+## (b)
+I explained 3 differences between R and Python.
+
+1)Function Definitions:
+
+In R, we define functions using the function keyword, and the result is often returned implicitly.
+In Python, functions are defined using the def keyword, and you explicitly use the return statement to return values.
+Example:
+
+-R:
+my_function <- function(a, b) {
+  a + b
+}
+
+-Python:
+def my_function(a, b):
+    return a + b
+    
+2)Indexing and Slicing:
+
+In R, indexing typically starts from 1, and you can use square brackets for subsetting vectors and data frames.
+In Python, indexing starts from 0, and you can use square brackets for lists and strings for slicing.
+Example:
+
+-R:
+vector_a[2]  # Access the second element
+
+-Python:
+list_a[1]  # Access the second element
+
+3)Packages and Libraries:
+
+R: R has a rich ecosystem of packages for statistical analysis and data visualization, with CRAN (Comprehensive R Archive Network) as a central repository.
+Python: Python is known for its extensive libraries and packages for various domains, including NumPy, Pandas, for data science.
+Example:
+
+-R:
+library(ggplot2)
+
+-Python:
+import matplotlib.pyplot as plt
+
+## (c)
 ```{r}
-
-
 library(dslabs)
 data(na_example)
 na_example
@@ -18,8 +79,3 @@ x[is.na(x)] <- 0
 x
 ```
 
-
-## (a)
-I chose this [video.](https://www.rstudio.com/conference/2022/talks/its-about-time/)
-
-## (b)
