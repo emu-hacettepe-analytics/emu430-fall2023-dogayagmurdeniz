@@ -10,6 +10,6 @@ This is my personal webpage, where I share my work in data analytics and blog po
 
 Stay tuned for updates and discoveries :)
 
-```{r, echo=FALSE}
-knitr::include_graphics("smiley.jpg")
+```{r, echo=FALSE, out.width = "30%", fig.align = "center"}
+knitr::include_graphics("face.png")
 ```

@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "[Student/Group Full Name]'s Analytics Lab"
+  title: "Doğa Yağmur Deniz's Analytics Lab"
   navbar:
     search: true
     left:
@@ -46,8 +46,8 @@ format:
     toc: true
     toc-location: left
     theme: 
-      light: theme.scss
-      dark: theme-dark.scss
+      light: pulse
+      dark: superhero
     css: styles.css
 
 
