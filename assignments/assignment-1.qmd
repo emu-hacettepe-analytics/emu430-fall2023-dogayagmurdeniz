@@ -73,7 +73,7 @@ library(dslabs)
 data(na_example)
 na_example
 #number of nas:
-sprintf("%d tane vardır",sum(is.na(na_example)))
+sprintf("The total number of NA in the data set is %d",sum(is.na(na_example)))
 x<-na_example
 x[is.na(x)] <- 0
 x
