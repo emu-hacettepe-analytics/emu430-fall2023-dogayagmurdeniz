@@ -2,8 +2,100 @@
 title: "Assignment 2"
 ---
 
-# Assignment 2
+# Step 1
+```{r, message=FALSE,results='asis'}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(rvest)
+library(dplyr)
+library(stringr)
+library(kableExtra)
+library(knitr)
 
-```{r}
-1 + 1
+final_data<-data.frame()
+urls <- c(
+  "https://m.imdb.com/search/title/?title_type=feature&release_date=2010-01-01,2023-12-31&num_votes=2500,&country_of_origin=TR&count=250",  "https://m.imdb.com/search/title/?title_type=feature&release_date=,2009-12-31&num_votes=2500,&country_of_origin=TR&count=250"
+)
 ```
+# Question 2
+Web scrapping to create a Data Frame with columns we need: Title, Year, Duration, Rating, Votes
+```{r, message=FALSE,results='asis'}
+knitr::opts_chunk$set(warning = FALSE)
+
+final_data<-data.frame()
+urls <- c(
+  "https://m.imdb.com/search/title/?title_type=feature&release_date=2010-01-01,2023-12-31&num_votes=2500,&country_of_origin=TR&count=250",  "https://m.imdb.com/search/title/?title_type=feature&release_date=,2009-12-31&num_votes=2500,&country_of_origin=TR&count=250"
+)
+titles<-c()
+years<-c()
+durations<-c()
+ratings<-c()
+votes<-c()
+
+for (url in urls){
+  data_html<- read_html(url)
+
+  title_names <- data_html |> html_nodes('.ipc-title__text')
+  title_names <- html_text(title_names)
+  title_names <- tail(head(title_names,-1),-1)
+  title_names <- str_split(title_names, " ", n=2)
+  title_names <- unlist(lapply(title_names, function(x) {x[2]}))
+  
+  titles<-c(titles,title_names)
+  
+  year_names <- data_html |> html_nodes('.sc-43986a27-8.jHYIIK.dli-title-metadata-item')
+  year_names <- html_text(year_names)
+  result <- year_names[grep(" ", year_names, invert = TRUE)]
+  result2 <- result[nchar(result) == 4]
+  result2<-as.numeric(result2)
+  years<-c(years,result2)
+  
+  duration_names <- data_html |> html_nodes('.sc-43986a27-8.jHYIIK.dli-title-metadata-item')
+  duration_names <- html_text(duration_names)
+  result3 <- duration_names[grep("h|m", duration_names, invert = FALSE)]
+  
+  
+  
+  durations<-c(durations,result3)
+  
+  rating_names <- data_html |> html_nodes('.ipc-rating-star.ipc-rating-star--base.ipc-rating-star--imdb.sc-9ab53865-1.iXEijC.ratingGroup--imdb-rating')
+  rating_names <- html_text(rating_names)
+  rating_names <- substr(rating_names, 1, 3)
+  rating_names <- as.numeric(rating_names)
+  
+  ratings<-c(ratings,rating_names)
+
+  vote_names <- data_html %>% html_nodes(".sc-53c98e73-0.kRnqtn")
+  vote_names <- html_text(vote_names)
+  vote_names <- substr(vote_names, start = 6, stop = nchar(vote_names))
+  vote_names <- gsub(",", "", vote_names)
+  vote_names<-as.numeric(vote_names)
+
+  votes<-c(votes,vote_names)
+  
+  
+}
+saat <- ifelse(grepl("h", durations), sub("h.*", "", durations), durations)
+saat <- ifelse(is.na(saat), 0, saat)
+saat <- as.numeric(saat)
+
+dakika <- ifelse(grepl("h.*m", durations), gsub(".*h(.*)m.*", "\\1", durations), "")
+dakika <- as.numeric(dakika)
+
+saat <- str_split(durations, " ")
+saat <- sapply(saat, function(x) ifelse(grepl("h", x[1], fixed = TRUE), x[1], 0))
+saat <- sub("h", "", saat)
+saat <- as.numeric(saat)
+saat <- saat * 60
+
+dakika <- str_split(durations, " ")
+dakika <- sapply(dakika, function(x) ifelse(length(x) >= 2, x[2], ifelse(grepl("m", x, fixed = TRUE), x[1], ifelse(grepl("m", x[1], fixed = TRUE), x[1],0))))
+dakika <- sub("m", "", dakika)
+dakika <- as.numeric(dakika)
+
+sure <- saat + dakika
+final<-data.frame(TITLE=titles, YEAR=years, DURATION=sure, RATING=ratings,VOTE=votes)
+
+kable(head(final,10), caption = "IMDB Dataframe")
+```
+
+
