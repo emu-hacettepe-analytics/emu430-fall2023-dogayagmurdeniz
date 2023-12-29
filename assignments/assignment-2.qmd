@@ -2,9 +2,10 @@
 title: "Assignment 2"
 ---
 
-# Step 1
+# Step 2
+Web scrapping to create a Data Frame with columns we need: Title, Year, Duration, Rating, Votes
 ```{r, message=FALSE,results='asis'}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
 library(rvest)
 library(dplyr)
 library(stringr)
@@ -15,11 +16,6 @@ final_data<-data.frame()
 urls <- c(
   "https://m.imdb.com/search/title/?title_type=feature&release_date=2010-01-01,2023-12-31&num_votes=2500,&country_of_origin=TR&count=250",  "https://m.imdb.com/search/title/?title_type=feature&release_date=,2009-12-31&num_votes=2500,&country_of_origin=TR&count=250"
 )
-```
-# Question 2
-Web scrapping to create a Data Frame with columns we need: Title, Year, Duration, Rating, Votes
-```{r, message=FALSE,results='asis'}
-knitr::opts_chunk$set(warning = FALSE)
 
 final_data<-data.frame()
 urls <- c(
@@ -97,5 +93,24 @@ final<-data.frame(TITLE=titles, YEAR=years, DURATION=sure, RATING=ratings,VOTE=v
 
 kable(head(final,10), caption = "IMDB Dataframe")
 ```
+
+# 3(a)
+Web scrapping to create a Data Frame with columns we need: Title, Year, Duration, Rating, Votes
+```{r, message=FALSE,results='asis'}
+final2<-final[order(final$RATING, decreasing=TRUE), ]
+final2$STANDING<- 1:nrow(final2)
+
+kable(head(final2,5), caption ="1st 5 movies")
+
+final3<-final[order(final$RATING, decreasing=FALSE), ]
+kable(tail(final2,5), caption ="Last 5 movies")
+```
+# 3(b)
+My 3 top movies are "Eksi Elmalar", "Banker Bilo", "A.R.O.G".
+```{r, message=FALSE,results='asis'}
+kable(final2[final2$TITLE %in% c("A.R.O.G", "Banker Bilo","Eksi Elmalar"), ])
+```
+# 3(c)
+
 
 
